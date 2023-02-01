@@ -2,6 +2,7 @@
 using System.Collections;
 //using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class GameManager : MonoBehaviour
     public float m_StartDelay = 3f;         
     public float m_EndDelay = 3f;           
     public CameraControl m_CameraControl;   
-    public Text m_MessageText;              
+    public Text m_MessageText;   
+	public TextMeshPro m_Text;
     public GameObject m_TankPrefab;         
     public TankManager[] m_Tanks;           
 
@@ -17,9 +19,9 @@ public class GameManager : MonoBehaviour
     private int m_RoundNumber;              
     private WaitForSeconds m_StartWait;     
     private WaitForSeconds m_EndWait;       
-/*    private TankManager m_RoundWinner;
+	private TankManager m_RoundWinner;
     private TankManager m_GameWinner;       
-*/
+
 
     const float k_MaxDepenetrationVelocity = float.PositiveInfinity;
 
@@ -111,7 +113,7 @@ public class GameManager : MonoBehaviour
         return numTanksLeft <= 1;
     }
 
-/*
+
     private TankManager GetRoundWinner()
     {
         for (int i = 0; i < m_Tanks.Length; i++)
@@ -155,7 +157,7 @@ public class GameManager : MonoBehaviour
 
         return message;
     }
-*/
+
 
     private void ResetAllTanks()
     {
