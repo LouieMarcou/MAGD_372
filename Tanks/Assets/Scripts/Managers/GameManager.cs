@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public float m_EndDelay = 3f;           
     public CameraControl m_CameraControl;   
     public Text m_MessageText;   
-	public TextMeshPro m_Text;
+	public TMP_Text m_Text;
     public GameObject m_TankPrefab;         
     public TankManager[] m_Tanks;           
 
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(RoundPlaying());
         yield return StartCoroutine(RoundEnding());
 
-/*        if (m_GameWinner != null)
+        if (m_GameWinner != null)
         {
             SceneManager.LoadScene(0);
         }
@@ -79,23 +79,56 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(GameLoop());
         }
-*/    }
+    }
 
 
     private IEnumerator RoundStarting()
     {
+        ResetAllTanks();
+        DisableTankControl();
+
+        m_CameraControl.SetStartPositionAndSize();
+
+        m_RoundNumber++;
+        m_Text.text = "ROUND" + m_RoundNumber;
+
         yield return m_StartWait;
     }
 
 
     private IEnumerator RoundPlaying()
     {
-        yield return null;
+        EnableTankControl();
+
+        m_Text.text = "";
+
+        while(!OneTankLeft())
+        {
+            yield return null;
+        }
+
+        
     }
 
 
     private IEnumerator RoundEnding()
     {
+        DisableTankControl();
+
+        m_RoundWinner = null;
+
+        m_RoundWinner = GetRoundWinner();
+
+        if(m_RoundWinner != null)
+        {
+            m_RoundWinner.m_Wins++;
+        }
+
+        m_GameWinner = GetGameWinner();
+
+        string message = EndMessage();
+        m_Text.text = message;
+
         yield return m_EndWait;
     }
 
