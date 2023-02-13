@@ -10,6 +10,7 @@ public class MovementControl : MonoBehaviour
 	public float playerSpeed = 2.0f;
 	private float baseSpeed = 2.0f;
 	private float speedIncrease = 0.1f;
+	private bool canMove = false;
 	public TMP_Text speedText;
 	private Vector2 movementInput;
 	
@@ -19,9 +20,22 @@ public class MovementControl : MonoBehaviour
 	
 	public void OnMove(InputAction.CallbackContext context)
 	{
-		movementInput = context.ReadValue<Vector2>();
+		if(context.started)
+		{
+			Debug.Log("action started");
+			canMove = true;
+			movementInput = context.ReadValue<Vector2>();
+			StartSpeedIncrease();
+		}
+		if(context.canceled)
+		{
+			Debug.Log("action canceled");
+			canMove = false;
+			movementInput = Vector2.zero;
+		}
+		
 		//StartCoroutine(IncreaseSpeed());
-		StartSpeedIncrease();
+		
 		//if(movementInput == Vector2.zero)
 		//	Debug.Log("completed");
 	}
@@ -44,7 +58,7 @@ public class MovementControl : MonoBehaviour
 	IEnumerator IncreaseSpeed()
 	{
 		Debug.Log("Coroutine started");
-        while (movementInput != Vector2.zero)
+        while (canMove)
         {
 			playerSpeed += 0.1f;
             yield return speedUpTime;
@@ -57,7 +71,7 @@ public class MovementControl : MonoBehaviour
 	public async Task AsyncSpeedIncrease()
     {
 		Debug.Log("Async started");
-		while (movementInput != Vector2.zero)
+		while (canMove)
 		{
 			if (playerSpeed >= 1000 || playerSpeed <= 0)
 				speedIncrease *= -1;
