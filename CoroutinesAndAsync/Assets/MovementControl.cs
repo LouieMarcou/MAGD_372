@@ -17,6 +17,9 @@ public class MovementControl : MonoBehaviour
 	public CharacterController controller;
 	
 	private WaitForSeconds speedUpTime = new WaitForSeconds(0.1f);
+
+    public bool useCorotuine = false;
+    public bool useAsync = false;
 	
 	public void OnMove(InputAction.CallbackContext context)
 	{
@@ -25,7 +28,10 @@ public class MovementControl : MonoBehaviour
 			Debug.Log("action started");
 			canMove = true;
 			movementInput = context.ReadValue<Vector2>();
-			StartSpeedIncrease();
+            if (useAsync)
+                StartSpeedIncrease();
+            else if (useCorotuine)
+                StartCoroutine(IncreaseSpeed());
 		}
 		if(context.canceled)
 		{
@@ -39,12 +45,6 @@ public class MovementControl : MonoBehaviour
 		//if(movementInput == Vector2.zero)
 		//	Debug.Log("completed");
 	}
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -87,4 +87,20 @@ public class MovementControl : MonoBehaviour
     {
 		await AsyncSpeedIncrease();
 	}
+
+    public void ActivateCoroutineUse()
+    {
+        Debug.Log("Switching to coroutine");
+        useCorotuine = true;
+        useAsync = false;
+        playerSpeed = baseSpeed;
+    }
+
+    public void ActivateAsyncUse()
+    {
+        Debug.Log("Switching to async");
+        useCorotuine = false;
+        useAsync = true;
+        playerSpeed = baseSpeed;
+    }
 }
