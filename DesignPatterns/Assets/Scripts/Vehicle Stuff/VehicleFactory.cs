@@ -24,7 +24,8 @@ public class VehicleFactory : MonoBehaviour
     public void PrintNewVehicle(string type)
     {
         Vehicle obj = GetVehicleType(type);
-        Debug.Log(obj);
+        GameManager.Instance.SetVehicle(obj);
+        
     }
 
 }

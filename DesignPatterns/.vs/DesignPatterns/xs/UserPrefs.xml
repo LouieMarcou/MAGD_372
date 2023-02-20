@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{FD1B12FD-5FC7-045D-4E2D-0A88B837B0F0}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Vehicle Stuff/Vehicle.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameManager.cs" Line="33" Column="11" />
+      <File FileName="Assets/Scripts/Vehicle Stuff/VehicleFactory.cs" Line="12" Column="37" />
+      <File FileName="Assets/Scripts/Vehicle Stuff/Vehicle.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Vehicle Stuff/Airplane.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/Vehicle Stuff/Car.cs" Line="3" Column="1" />
+      <File FileName="Assets/Scripts/Vehicle Stuff/Ship.cs" Line="3" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DesignPatterns" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Vehicle Stuff" expanded="True">
+                  <Node name="Vehicle.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ea68fce8-2366-4e9f-985d-f16c69611f84" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Airplane : Vehicle
 {
-    public override string Name => "airplane";
+
 }

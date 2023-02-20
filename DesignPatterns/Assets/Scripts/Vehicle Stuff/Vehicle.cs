@@ -1,4 +1,12 @@
 public abstract class Vehicle
 {
-    public abstract string Name { get; }
+    public string Name;
+
+    public string Person;
+
+    Vehicle(string Name, string Person)
+    {
+        this.Name = Name;
+        this.Person = Person;
+    }
 }
