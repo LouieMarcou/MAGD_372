@@ -4,9 +4,5 @@ public abstract class Vehicle
 
     public string Person;
 
-    Vehicle(string Name, string Person)
-    {
-        this.Name = Name;
-        this.Person = Person;
-    }
+ 
 }
