@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{8FF035FB-417E-E6B9-A8CE-AD501E5785B6}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Noise.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Noise.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ProceduralGeneration1" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6b2ab6cb-ed45-491d-b3ad-0667dadd0cbc" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
