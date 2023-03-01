@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int mapWidth;
+    public int mapHeight;
+    public float noiseScale;
 
-    // Update is called once per frame
-    void Update()
+    public bool autoUpdate;
+    public void GenerateMap()
     {
-        
+        float[,] noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, noiseScale);
+
+        MapDisplay display = FindObjectOfType<MapDisplay>();
+        display.DrawNoiseMap(noiseMap);
     }
 }
