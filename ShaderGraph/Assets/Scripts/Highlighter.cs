@@ -40,7 +40,7 @@ public class Highlighter : MonoBehaviour
 
     private void OnMouseOver()
     {
-        Debug.Log("Detecting");
+        //Debug.Log("Detecting");
         EnableHighlight(true);
     }
 
