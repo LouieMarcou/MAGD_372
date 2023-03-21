@@ -59,12 +59,53 @@ public static class Noise
             }
         }
 
+        int tempWidth = mapWidth;
+
         for (int y = 0; y < mapHeight; y++)
         {
-            for (int x = 0; x < mapWidth; x++)
+            for (int x = 0; x < tempWidth/2; x++)
             {
                 noiseMap[x, y] = Mathf.InverseLerp(minNoiseHeight, maxNoiseHeight, noiseMap[x, y]);
+
+                //Debug.Log("(" + (mapWidth - x) + "," + y + ")");
+                noiseMap[mapWidth - x - 1, y] = noiseMap[x, y];
+
+                //if (x == 0 & y == 0)
+                //{
+                //    noiseMap[mapWidth - 1, mapHeight - 1] = noiseMap[x, y];
+                //    continue;
+                //}
+
+                //int reflectX = x - (mapWidth / 2);
+                //int reflectY = y - (mapHeight / 2);
+                //if (reflectX == 0)
+                //{
+                //    reflectX = mapWidth - 1;
+                //}
+                //if (reflectY == 0)
+                //{
+                //    reflectY = mapHeight - 1;
+                //}
+
+                //if(reflectX == mapWidth -1)
+                //{
+                //    reflectX = 0;
+                //}
+                //if(reflectY == mapHeight-1)
+                //{
+                //    reflectY = 0;
+                //}
+
+                //reflectX *= -1;
+                //reflectY *= -1;
+
+                //Debug.Log("(" + x + "," + y + ")");
+                //Debug.Log("(" + reflectX + "," + reflectY + ")");
+
+                //noiseMap[reflectX, reflectY] = noiseMap[x, y];
+
             }
+            //tempWidth--;
         }
 
         return noiseMap;
